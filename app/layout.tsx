@@ -7,6 +7,8 @@ import Footer from "./components/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://msc-gomycode.com"), // Add this line
+
   // Basic SEO
   title: {
     default:
