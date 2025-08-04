@@ -187,7 +187,7 @@ export default function Home() {
                 }`}
               >
                 {program.popular && (
-                  <Badge className="absolute -top-3 left-6 bg-blue-500">
+                  <Badge className="absolute -top-3 left-6 bg-blue-600 text-white hover:bg-blue-700">
                     Most Popular
                   </Badge>
                 )}
