@@ -14,11 +14,11 @@ import {
   Trophy,
   Star,
   CheckCircle,
-  BookOpen,
   Award,
   Clock,
   Globe,
 } from "lucide-react";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -40,9 +40,9 @@ export default function Home() {
           </h1>
 
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Join thousands of developers who've transformed their careers with
-            our comprehensive coding bootcamp. From beginner to professional in
-            6 months.
+            Join thousands of developers who&apos;ve transformed their careers
+            with our comprehensive coding bootcamp. From beginner to
+            professional in 6 months.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -374,12 +374,16 @@ export default function Home() {
                       />
                     ))}
                   </div>
-                  <p className="text-gray-600 italic">"{testimonial.quote}"</p>
+                  <p className="text-gray-600 italic">
+                    &ldquo;{testimonial.quote}&rdquo;
+                  </p>
                   <div className="flex items-center space-x-3">
-                    <img
+                    <Image
                       src={testimonial.image}
                       alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover"
+                      width={48}
+                      height={48}
+                      className="rounded-full object-cover"
                     />
                     <div>
                       <p className="font-semibold text-gray-900">

@@ -29,8 +29,8 @@ export default function Footer() {
             </div>
             <p className="text-gray-400 leading-relaxed">
               Transforming careers through comprehensive coding education. Join
-              thousands of developers who've launched their tech careers with
-              us.
+              thousands of developers who&apos;ve launched their tech careers
+              with us.
             </p>
             <div className="flex space-x-4">
               <Button
