@@ -101,9 +101,6 @@ export const metadata: Metadata = {
     yahoo: "your-yahoo-verification-code",
   },
 
-  // Manifest for PWA
-  manifest: "/manifest.json",
-
   // Other meta tags
   other: {
     "apple-mobile-web-app-capable": "yes",
@@ -130,9 +127,6 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
         {/* Structured Data for better search results */}
         <script

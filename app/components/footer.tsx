@@ -1,6 +1,6 @@
 /* filepath: /c:/Users/LenOvo/Desktop/master/next project/msc_next_project/app/components/footer.tsx */
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+import { Button } from "@/app/components/ui/button";
+import { Separator } from "@/app/components/ui/separator";
 import {
   Code2,
   Mail,

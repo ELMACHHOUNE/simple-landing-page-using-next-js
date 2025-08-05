@@ -2,8 +2,10 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/app/components/ui/button";
 import { Menu, X, Code2 } from "lucide-react";
+import SignInDialog from "./auth/sign-in-dialog";
+import GetStartedDialog from "./auth/get-started-dialog";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -62,15 +64,19 @@ export default function Navbar() {
 
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" className="text-gray-700">
-              Sign In
-            </Button>
-            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-              Get Started
-            </Button>
+            <SignInDialog>
+              <Button variant="ghost" className="text-gray-700">
+                Sign In
+              </Button>
+            </SignInDialog>
+            <GetStartedDialog>
+              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                Get Started
+              </Button>
+            </GetStartedDialog>
           </div>
 
-          {/* Mobile Menu Button - FIXED with aria-label */}
+          {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
             className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
@@ -128,12 +134,16 @@ export default function Navbar() {
               </a>
 
               <div className="flex flex-col space-y-2 pt-4 border-t">
-                <Button variant="ghost" className="justify-start">
-                  Sign In
-                </Button>
-                <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-                  Get Started
-                </Button>
+                <SignInDialog>
+                  <Button variant="ghost" className="justify-start">
+                    Sign In
+                  </Button>
+                </SignInDialog>
+                <GetStartedDialog>
+                  <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                    Get Started
+                  </Button>
+                </GetStartedDialog>
               </div>
             </nav>
           </div>
