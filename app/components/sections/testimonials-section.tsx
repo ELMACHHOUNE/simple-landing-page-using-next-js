@@ -1,14 +1,13 @@
 /* filepath: /c:/Users/LenOvo/Desktop/master/next project/msc_next_project/app/components/sections/testimonials-section.tsx */
 import { Card, CardContent } from "@/app/components/ui/card";
 import { Star } from "lucide-react";
-import Image from "next/image";
 
 const testimonials = [
   {
     name: "Sarah Johnson",
     role: "Frontend Developer at Google",
-    image:
-      "https://images.unsplash.com/photo-1494790108755-2616b612b190?w=150&h=150&fit=crop&crop=face",
+    initials: "SJ",
+    color: "from-pink-500 to-rose-500",
     quote:
       "MSc-GoMyCode gave me the skills and confidence to land my dream job. The mentorship was invaluable!",
     rating: 5,
@@ -16,8 +15,8 @@ const testimonials = [
   {
     name: "Marcus Chen",
     role: "Full Stack Developer at Microsoft",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    initials: "MC",
+    color: "from-blue-500 to-cyan-500",
     quote:
       "From zero coding experience to a six-figure salary in 8 months. The program really works!",
     rating: 5,
@@ -25,8 +24,8 @@ const testimonials = [
   {
     name: "Emily Rodriguez",
     role: "Backend Engineer at Amazon",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    initials: "ER",
+    color: "from-purple-500 to-indigo-500",
     quote:
       "The project-based approach helped me build a portfolio that impressed employers.",
     rating: 5,
@@ -62,13 +61,12 @@ export default function TestimonialsSection() {
                   &ldquo;{testimonial.quote}&rdquo;
                 </p>
                 <div className="flex items-center space-x-3">
-                  <Image
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    width={48}
-                    height={48}
-                    className="rounded-full object-cover"
-                  />
+                  {/* CSS-based avatar with initials */}
+                  <div
+                    className={`w-12 h-12 rounded-full bg-gradient-to-r ${testimonial.color} flex items-center justify-center text-white font-bold text-sm`}
+                  >
+                    {testimonial.initials}
+                  </div>
                   <div>
                     <p className="font-semibold text-gray-900">
                       {testimonial.name}
