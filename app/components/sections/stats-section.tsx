@@ -1,4 +1,6 @@
 /* filepath: /c:/Users/LenOvo/Desktop/master/next project/msc_next_project/app/components/sections/stats-section.tsx */
+"use client";
+
 import {
   Card,
   CardHeader,
@@ -6,35 +8,38 @@ import {
   CardDescription,
 } from "@/app/components/ui/card";
 import { Users, Trophy, Code, Clock } from "lucide-react";
-
-const stats = [
-  {
-    icon: Users,
-    value: "5,000+",
-    label: "Graduates Hired",
-    color: "blue",
-  },
-  {
-    icon: Trophy,
-    value: "95%",
-    label: "Job Placement Rate",
-    color: "purple",
-  },
-  {
-    icon: Code,
-    value: "$75k",
-    label: "Average Starting Salary",
-    color: "green",
-  },
-  {
-    icon: Clock,
-    value: "6",
-    label: "Months to Career",
-    color: "orange",
-  },
-];
+import { useLanguage } from "@/app/contexts/language-context";
 
 export default function StatsSection() {
+  const { t } = useLanguage();
+
+  const stats = [
+    {
+      icon: Users,
+      value: "5,000+",
+      labelKey: "stats.graduatesHired",
+      color: "blue",
+    },
+    {
+      icon: Trophy,
+      value: "95%",
+      labelKey: "stats.jobPlacement",
+      color: "purple",
+    },
+    {
+      icon: Code,
+      value: "$75k",
+      labelKey: "stats.averageSalary",
+      color: "green",
+    },
+    {
+      icon: Clock,
+      value: "6",
+      labelKey: "stats.monthsToCareer",
+      color: "orange",
+    },
+  ];
+
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -51,7 +56,7 @@ export default function StatsSection() {
                   {stat.value}
                 </CardTitle>
                 <CardDescription className="text-gray-600">
-                  {stat.label}
+                  {t(stat.labelKey)}
                 </CardDescription>
               </CardHeader>
             </Card>

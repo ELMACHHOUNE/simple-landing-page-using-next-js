@@ -1,0 +1,120 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "programs": "Programmes",
+    "features": "Fonctionnalités",
+    "testimonials": "Avis",
+    "contact": "Contact",
+    "signIn": "Se connecter",
+    "getStarted": "Commencer"
+  },
+  "hero": {
+    "badge": "🚀 Nouveau : Cours Avancé React & Next.js Disponible",
+    "title": "Maîtrisez le Développement Web Moderne",
+    "subtitle": "Rejoignez des milliers de développeurs qui ont transformé leur carrière avec notre bootcamp de programmation complet. De débutant à professionnel en 6 mois.",
+    "startJourney": "Commencez Votre Parcours",
+    "watchDemo": "Voir la Démo",
+    "noExperience": "Aucune expérience requise",
+    "jobGuarantee": "Garantie d'emploi",
+    "liveMentorship": "Mentorat en direct"
+  },
+  "stats": {
+    "graduatesHired": "Diplômés Embauchés",
+    "jobPlacement": "Taux de Placement",
+    "averageSalary": "Salaire de Départ Moyen",
+    "monthsToCareer": "Mois vers Carrière"
+  },
+  "programs": {
+    "title": "Choisissez Votre Voie",
+    "subtitle": "Programmes spécialisés conçus pour vos objectifs de carrière",
+    "mostPopular": "Le Plus Populaire",
+    "fullStack": {
+      "title": "Développement Full Stack",
+      "description": "Maîtrisez les technologies frontend et backend avec React, Node.js et les bases de données."
+    },
+    "frontend": {
+      "title": "Spécialiste Frontend",
+      "description": "Concentrez-vous sur la création d'interfaces utilisateur belles et réactives."
+    },
+    "backend": {
+      "title": "Ingénierie Backend",
+      "description": "Construisez des applications côté serveur robustes et des API avec des frameworks modernes."
+    },
+    "duration": "Durée :",
+    "level": "Niveau :",
+    "keySkills": "Compétences Clés :",
+    "learnMore": "En Savoir Plus",
+    "levels": {
+      "beginnerToAdvanced": "Débutant à Avancé",
+      "beginnerToIntermediate": "Débutant à Intermédiaire",
+      "intermediateToAdvanced": "Intermédiaire à Avancé"
+    }
+  },
+  "features": {
+    "title": "Pourquoi Choisir MSc-GoMyCode ?",
+    "subtitle": "Tout ce dont vous avez besoin pour devenir un développeur professionnel",
+    "projectBased": {
+      "title": "Apprentissage par Projets",
+      "description": "Construisez des applications du monde réel que vous pouvez présenter aux employeurs."
+    },
+    "mentorship": {
+      "title": "Mentorat Individuel",
+      "description": "Guidance personnelle d'experts de l'industrie avec des rendez-vous hebdomadaires."
+    },
+    "jobPlacement": {
+      "title": "Support de Placement",
+      "description": "Révision de CV, préparation d'entretiens et connexions avec nos 500+ partenaires."
+    },
+    "flexible": {
+      "title": "Apprentissage Flexible",
+      "description": "Étudiez à votre rythme avec des sessions en direct et du contenu enregistré 24/7."
+    },
+    "certifications": {
+      "title": "Certifications Industrielles",
+      "description": "Obtenez des certifications reconnues qui valident vos compétences."
+    },
+    "community": {
+      "title": "Communauté Mondiale",
+      "description": "Rejoignez un réseau mondial de développeurs, diplômés et professionnels."
+    }
+  },
+  "testimonials": {
+    "title": "Histoires de Succès",
+    "subtitle": "Écoutez nos diplômés qui ont transformé leur carrière",
+    "sarah": {
+      "quote": "MSc-GoMyCode m'a donné les compétences et la confiance pour décrocher mon emploi de rêve !"
+    },
+    "marcus": {
+      "quote": "De zéro expérience en programmation à un salaire à six chiffres en 8 mois. Le programme fonctionne vraiment !"
+    },
+    "emily": {
+      "quote": "L'approche basée sur les projets m'a aidé à construire un portfolio qui a impressionné les employeurs."
+    }
+  },
+  "cta": {
+    "title": "Prêt à Commencer Votre Parcours de Programmation ?",
+    "subtitle": "Rejoignez notre prochaine cohorte qui commence en septembre 2025",
+    "applyNow": "Postulez Maintenant - Places Limitées",
+    "scheduleCall": "Planifier un Appel",
+    "benefits": "💳 Aucun paiement initial • 💼 Garantie d'emploi • 🔄 Politique de remboursement complet"
+  },
+  "footer": {
+    "description": "Transformer les carrières grâce à une éducation en programmation complète. Rejoignez des milliers de développeurs qui ont lancé leur carrière tech avec nous.",
+    "programs": "Programmes",
+    "company": "Entreprise",
+    "getInTouch": "Nous Contacter",
+    "support": "Support",
+    "aboutUs": "À Propos",
+    "ourStory": "Notre Histoire",
+    "careers": "Carrières",
+    "press": "Presse & Médias",
+    "partnership": "Partenariat",
+    "helpCenter": "Centre d'Aide",
+    "studentPortal": "Portail Étudiant",
+    "community": "Forum Communautaire",
+    "privacyPolicy": "Politique de Confidentialité",
+    "termsOfService": "Conditions de Service",
+    "cookiePolicy": "Politique des Cookies",
+    "copyright": "© 2025 MSc-GoMyCode. Tous droits réservés."
+  }
+}

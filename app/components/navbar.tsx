@@ -4,11 +4,14 @@
 import { useState } from "react";
 import { Button } from "@/app/components/ui/button";
 import { Menu, X, Code2 } from "lucide-react";
+import { useLanguage } from "@/app/contexts/language-context";
+import LanguageToggle from "./ui/language-toggle";
 import SignInDialog from "./auth/sign-in-dialog";
 import GetStartedDialog from "./auth/get-started-dialog";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -34,44 +37,45 @@ export default function Navbar() {
               href="#home"
               className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
             >
-              Home
+              {t("nav.home")}
             </a>
             <a
               href="#programs"
               className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
             >
-              Programs
+              {t("nav.programs")}
             </a>
             <a
               href="#features"
               className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
             >
-              Features
+              {t("nav.features")}
             </a>
             <a
               href="#testimonials"
               className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
             >
-              Reviews
+              {t("nav.testimonials")}
             </a>
             <a
               href="#contact"
               className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
             >
-              Contact
+              {t("nav.contact")}
             </a>
           </nav>
 
-          {/* Desktop CTA Buttons */}
+          {/* Desktop CTA Buttons & Language Toggle */}
           <div className="hidden md:flex items-center space-x-4">
+            <LanguageToggle />
             <SignInDialog>
               <Button variant="ghost" className="text-gray-700">
-                Sign In
+                {t("nav.signIn")}
               </Button>
             </SignInDialog>
             <GetStartedDialog>
               <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-                Get Started
+                {t("nav.getStarted")}
               </Button>
             </GetStartedDialog>
           </div>
@@ -102,46 +106,49 @@ export default function Navbar() {
                 className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Home
+                {t("nav.home")}
               </a>
               <a
                 href="#programs"
                 className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Programs
+                {t("nav.programs")}
               </a>
               <a
                 href="#features"
                 className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Features
+                {t("nav.features")}
               </a>
               <a
                 href="#testimonials"
                 className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Reviews
+                {t("nav.testimonials")}
               </a>
               <a
                 href="#contact"
                 className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Contact
+                {t("nav.contact")}
               </a>
 
               <div className="flex flex-col space-y-2 pt-4 border-t">
+                <div className="flex justify-center pb-2">
+                  <LanguageToggle />
+                </div>
                 <SignInDialog>
                   <Button variant="ghost" className="justify-start">
-                    Sign In
+                    {t("nav.signIn")}
                   </Button>
                 </SignInDialog>
                 <GetStartedDialog>
                   <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-                    Get Started
+                    {t("nav.getStarted")}
                   </Button>
                 </GetStartedDialog>
               </div>

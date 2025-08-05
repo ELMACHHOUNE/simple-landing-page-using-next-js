@@ -1,6 +1,9 @@
 /* filepath: /c:/Users/LenOvo/Desktop/master/next project/msc_next_project/app/components/sections/testimonials-section.tsx */
+"use client";
+
 import { Card, CardContent } from "@/app/components/ui/card";
 import { Star } from "lucide-react";
+import { useLanguage } from "@/app/contexts/language-context";
 
 const testimonials = [
   {
@@ -8,8 +11,7 @@ const testimonials = [
     role: "Frontend Developer at Google",
     initials: "SJ",
     color: "from-pink-500 to-rose-500",
-    quote:
-      "MSc-GoMyCode gave me the skills and confidence to land my dream job. The mentorship was invaluable!",
+    quoteKey: "testimonials.sarah.quote",
     rating: 5,
   },
   {
@@ -17,8 +19,7 @@ const testimonials = [
     role: "Full Stack Developer at Microsoft",
     initials: "MC",
     color: "from-blue-500 to-cyan-500",
-    quote:
-      "From zero coding experience to a six-figure salary in 8 months. The program really works!",
+    quoteKey: "testimonials.marcus.quote",
     rating: 5,
   },
   {
@@ -26,23 +27,22 @@ const testimonials = [
     role: "Backend Engineer at Amazon",
     initials: "ER",
     color: "from-purple-500 to-indigo-500",
-    quote:
-      "The project-based approach helped me build a portfolio that impressed employers.",
+    quoteKey: "testimonials.emily.quote",
     rating: 5,
   },
 ];
 
 export default function TestimonialsSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="testimonials" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Success Stories
+            {t("testimonials.title")}
           </h2>
-          <p className="text-xl text-gray-600">
-            Hear from our graduates who transformed their careers
-          </p>
+          <p className="text-xl text-gray-600">{t("testimonials.subtitle")}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -58,10 +58,9 @@ export default function TestimonialsSection() {
                   ))}
                 </div>
                 <p className="text-gray-600 italic">
-                  &ldquo;{testimonial.quote}&rdquo;
+                  &ldquo;{t(testimonial.quoteKey)}&rdquo;
                 </p>
                 <div className="flex items-center space-x-3">
-                  {/* CSS-based avatar with initials */}
                   <div
                     className={`w-12 h-12 rounded-full bg-gradient-to-r ${testimonial.color} flex items-center justify-center text-white font-bold text-sm`}
                   >

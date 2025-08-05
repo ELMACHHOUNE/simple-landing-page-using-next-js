@@ -3,11 +3,12 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
+import { LanguageProvider } from "./contexts/language-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://msc-gomycode.com"), // Add this line
+  metadataBase: new URL("https://msc-gomycode.com"),
 
   // Basic SEO
   title: {
@@ -22,19 +23,12 @@ export const metadata: Metadata = {
   keywords: [
     "coding bootcamp",
     "web development course",
-    "full stack developer training",
-    "React bootcamp",
-    "Node.js training",
-    "programming bootcamp",
+    "programming training",
+    "react course",
+    "full stack developer",
     "tech career change",
-    "software development course",
-    "JavaScript bootcamp",
-    "frontend developer course",
-    "backend developer training",
-    "job guarantee coding course",
-    "online coding bootcamp",
-    "web developer certification",
-    "MSc GoMyCode",
+    "online coding school",
+    "javascript bootcamp",
   ],
 
   // Author and creator info
@@ -109,6 +103,11 @@ export const metadata: Metadata = {
     "mobile-web-app-capable": "yes",
     "msapplication-TileColor": "#2563eb",
     "theme-color": "#2563eb",
+  },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
 };
 
@@ -193,9 +192,17 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <LanguageProvider>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded z-50"
+          >
+            Skip to main content
+          </a>
+          <Navbar />
+          <main id="main-content">{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );
