@@ -195,5 +195,120 @@
       "required": "*",
       "orSignUpWith": "Or sign up with"
     }
+  },
+  "common": {
+    "backToHome": "Back to Home"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated",
+    "introduction": {
+      "title": "Introduction",
+      "content": "At MSc-GoMyCode, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, and protect your data when you use our educational services and website."
+    },
+    "dataCollection": {
+      "title": "Information We Collect",
+      "content": "We collect information you provide directly to us, such as when you create an account, enroll in courses, or contact us. This may include:",
+      "personalInfo": "Personal information (name, email address, phone number)",
+      "academicInfo": "Academic information and course progress",
+      "technicalInfo": "Technical information (IP address, browser type, device information)",
+      "communicationInfo": "Communication preferences and feedback"
+    },
+    "dataUse": {
+      "title": "How We Use Your Information",
+      "content": "We use the information we collect to:",
+      "serviceProvision": "Provide and improve our educational services",
+      "communication": "Communicate with you about courses and updates",
+      "improvement": "Analyze and improve our platform and curriculum",
+      "legal": "Comply with legal obligations and protect our rights"
+    },
+    "dataSharing": {
+      "title": "Information Sharing",
+      "content": "We do not sell, trade, or rent your personal information to third parties. We may share your information only in specific circumstances, such as with your consent, to comply with legal requirements, or to protect our rights and safety."
+    },
+    "userRights": {
+      "title": "Your Rights",
+      "content": "You have the right to access, update, correct, or delete your personal information. You may also object to certain processing activities or request data portability. To exercise these rights, please contact us using the information provided below."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have any questions about this Privacy Policy or our data practices, please contact us at:"
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated",
+    "acceptance": {
+      "title": "Acceptance of Terms",
+      "content": "By accessing and using MSc-GoMyCode's services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by these terms, you are not authorized to use or access our services."
+    },
+    "services": {
+      "title": "Description of Service",
+      "content": "MSc-GoMyCode provides online and offline educational services including programming courses, mentorship, career guidance, and related educational content. We reserve the right to modify, suspend, or discontinue any aspect of our services at any time."
+    },
+    "userObligations": {
+      "title": "User Obligations",
+      "content": "As a user of our services, you agree to:",
+      "respectful": "Maintain respectful communication with instructors and fellow students",
+      "accurate": "Provide accurate and complete information when required",
+      "prohibited": "Not engage in any prohibited or illegal activities",
+      "intellectual": "Respect intellectual property rights and course materials"
+    },
+    "payment": {
+      "title": "Payment Terms",
+      "content": "Course fees are due as specified in your enrollment agreement. Refund policies vary by program and are outlined in your specific course agreement. All payments are processed securely through our approved payment processors."
+    },
+    "termination": {
+      "title": "Termination",
+      "content": "We reserve the right to terminate or suspend your access to our services at any time, with or without cause, and with or without notice. You may also terminate your account at any time by contacting us directly."
+    },
+    "liability": {
+      "title": "Limitation of Liability",
+      "content": "MSc-GoMyCode shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or use, incurred by you or any third party, whether in an action in contract or tort."
+    },
+    "contact": {
+      "title": "Contact Information",
+      "content": "For questions about these Terms of Service, please contact us at:"
+    }
+  },
+  "cookies": {
+    "title": "Cookie Policy",
+    "lastUpdated": "Last updated",
+    "whatAreCookies": {
+      "title": "What Are Cookies",
+      "content": "Cookies are small text files that are placed on your computer or mobile device when you visit our website. They help us provide you with a better experience by remembering your preferences and improving our services."
+    },
+    "typesOfCookies": {
+      "title": "Types of Cookies We Use",
+      "content": "We use different types of cookies for various purposes:",
+      "essential": {
+        "title": "Essential Cookies",
+        "description": "These cookies are necessary for the website to function properly. They enable core functionality such as security, network management, and accessibility."
+      },
+      "analytics": {
+        "title": "Analytics Cookies",
+        "description": "These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously."
+      },
+      "marketing": {
+        "title": "Marketing Cookies",
+        "description": "These cookies are used to track visitors across websites to display relevant and engaging advertisements."
+      }
+    },
+    "manageCookies": {
+      "title": "Managing Cookies",
+      "content": "You can control and manage cookies in various ways. Most browsers allow you to refuse or accept cookies, delete existing cookies, or set preferences for certain websites. Please note that disabling cookies may affect the functionality of our website."
+    },
+    "thirdParty": {
+      "title": "Third-Party Cookies",
+      "content": "We may also use third-party services such as Google Analytics, which may set their own cookies. These third parties have their own privacy policies and cookie policies, which we encourage you to review."
+    },
+    "updates": {
+      "title": "Updates to This Policy",
+      "content": "We may update this Cookie Policy from time to time to reflect changes in our practices or applicable law. We will notify you of any material changes by posting the updated policy on our website."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have any questions about our use of cookies, please contact us at:"
+    }
   }
 }

@@ -251,19 +251,19 @@ export default function Footer() {
 
           <div className="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6 text-sm">
             <a
-              href="#privacy"
+              href="/privacy"
               className="text-gray-300 hover:text-white transition-colors"
             >
               {t("footer.privacyPolicy")}
             </a>
             <a
-              href="#terms"
+              href="/terms"
               className="text-gray-300 hover:text-white transition-colors"
             >
               {t("footer.termsOfService")}
             </a>
             <a
-              href="#cookies"
+              href="/cookies"
               className="text-gray-300 hover:text-white transition-colors"
             >
               {t("footer.cookiePolicy")}

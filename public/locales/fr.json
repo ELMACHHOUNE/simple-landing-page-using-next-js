@@ -195,5 +195,120 @@
       "required": "*",
       "orSignUpWith": "Ou s'inscrire avec"
     }
+  },
+  "common": {
+    "backToHome": "Retour à l'accueil"
+  },
+  "privacy": {
+    "title": "Politique de Confidentialité",
+    "lastUpdated": "Dernière mise à jour",
+    "introduction": {
+      "title": "Introduction",
+      "content": "Chez MSc-GoMyCode, nous nous engageons à protéger votre vie privée et à assurer la sécurité de vos informations personnelles. Cette Politique de Confidentialité explique comment nous collectons, utilisons et protégeons vos données lorsque vous utilisez nos services éducatifs et notre site web."
+    },
+    "dataCollection": {
+      "title": "Informations que nous collectons",
+      "content": "Nous collectons les informations que vous nous fournissez directement, par exemple lorsque vous créez un compte, vous inscrivez à des cours ou nous contactez. Cela peut inclure :",
+      "personalInfo": "Informations personnelles (nom, adresse e-mail, numéro de téléphone)",
+      "academicInfo": "Informations académiques et progression des cours",
+      "technicalInfo": "Informations techniques (adresse IP, type de navigateur, informations sur l'appareil)",
+      "communicationInfo": "Préférences de communication et commentaires"
+    },
+    "dataUse": {
+      "title": "Comment nous utilisons vos informations",
+      "content": "Nous utilisons les informations que nous collectons pour :",
+      "serviceProvision": "Fournir et améliorer nos services éducatifs",
+      "communication": "Communiquer avec vous sur les cours et les mises à jour",
+      "improvement": "Analyser et améliorer notre plateforme et notre programme",
+      "legal": "Respecter les obligations légales et protéger nos droits"
+    },
+    "dataSharing": {
+      "title": "Partage d'informations",
+      "content": "Nous ne vendons, n'échangeons ou ne louons pas vos informations personnelles à des tiers. Nous pouvons partager vos informations uniquement dans des circonstances spécifiques, comme avec votre consentement, pour respecter les exigences légales ou pour protéger nos droits et notre sécurité."
+    },
+    "userRights": {
+      "title": "Vos droits",
+      "content": "Vous avez le droit d'accéder, de mettre à jour, de corriger ou de supprimer vos informations personnelles. Vous pouvez également vous opposer à certaines activités de traitement ou demander la portabilité des données. Pour exercer ces droits, veuillez nous contacter en utilisant les informations fournies ci-dessous."
+    },
+    "contact": {
+      "title": "Nous contacter",
+      "content": "Si vous avez des questions sur cette Politique de Confidentialité ou nos pratiques de données, veuillez nous contacter à :"
+    }
+  },
+  "terms": {
+    "title": "Conditions d'Utilisation",
+    "lastUpdated": "Dernière mise à jour",
+    "acceptance": {
+      "title": "Acceptation des conditions",
+      "content": "En accédant et en utilisant les services de MSc-GoMyCode, vous acceptez et convenez d'être lié par les termes et dispositions de cet accord. Si vous n'acceptez pas de respecter ces conditions, vous n'êtes pas autorisé à utiliser ou accéder à nos services."
+    },
+    "services": {
+      "title": "Description du service",
+      "content": "MSc-GoMyCode fournit des services éducatifs en ligne et hors ligne, y compris des cours de programmation, du mentorat, des conseils de carrière et du contenu éducatif connexe. Nous nous réservons le droit de modifier, suspendre ou interrompre tout aspect de nos services à tout moment."
+    },
+    "userObligations": {
+      "title": "Obligations de l'utilisateur",
+      "content": "En tant qu'utilisateur de nos services, vous acceptez de :",
+      "respectful": "Maintenir une communication respectueuse avec les instructeurs et les autres étudiants",
+      "accurate": "Fournir des informations exactes et complètes lorsque requis",
+      "prohibited": "Ne pas vous engager dans des activités interdites ou illégales",
+      "intellectual": "Respecter les droits de propriété intellectuelle et le matériel de cours"
+    },
+    "payment": {
+      "title": "Conditions de paiement",
+      "content": "Les frais de cours sont dus comme spécifié dans votre accord d'inscription. Les politiques de remboursement varient selon le programme et sont décrites dans votre accord de cours spécifique. Tous les paiements sont traités de manière sécurisée par nos processeurs de paiement approuvés."
+    },
+    "termination": {
+      "title": "Résiliation",
+      "content": "Nous nous réservons le droit de résilier ou de suspendre votre accès à nos services à tout moment, avec ou sans cause, et avec ou sans préavis. Vous pouvez également résilier votre compte à tout moment en nous contactant directement."
+    },
+    "liability": {
+      "title": "Limitation de responsabilité",
+      "content": "MSc-GoMyCode ne sera pas responsable des dommages indirects, accessoires, spéciaux, consécutifs ou punitifs, y compris mais sans s'y limiter la perte de profits, de données ou d'utilisation, subis par vous ou tout tiers, que ce soit dans une action contractuelle ou délictuelle."
+    },
+    "contact": {
+      "title": "Informations de contact",
+      "content": "Pour des questions sur ces Conditions d'Utilisation, veuillez nous contacter à :"
+    }
+  },
+  "cookies": {
+    "title": "Politique des Cookies",
+    "lastUpdated": "Dernière mise à jour",
+    "whatAreCookies": {
+      "title": "Que sont les cookies",
+      "content": "Les cookies sont de petits fichiers texte qui sont placés sur votre ordinateur ou appareil mobile lorsque vous visitez notre site web. Ils nous aident à vous offrir une meilleure expérience en mémorisant vos préférences et en améliorant nos services."
+    },
+    "typesOfCookies": {
+      "title": "Types de cookies que nous utilisons",
+      "content": "Nous utilisons différents types de cookies à diverses fins :",
+      "essential": {
+        "title": "Cookies essentiels",
+        "description": "Ces cookies sont nécessaires au bon fonctionnement du site web. Ils activent des fonctionnalités de base telles que la sécurité, la gestion du réseau et l'accessibilité."
+      },
+      "analytics": {
+        "title": "Cookies d'analyse",
+        "description": "Ces cookies nous aident à comprendre comment les visiteurs interagissent avec notre site web en collectant et rapportant des informations de manière anonyme."
+      },
+      "marketing": {
+        "title": "Cookies marketing",
+        "description": "Ces cookies sont utilisés pour suivre les visiteurs sur les sites web afin d'afficher des publicités pertinentes et engageantes."
+      }
+    },
+    "manageCookies": {
+      "title": "Gestion des cookies",
+      "content": "Vous pouvez contrôler et gérer les cookies de diverses manières. La plupart des navigateurs vous permettent de refuser ou d'accepter les cookies, de supprimer les cookies existants ou de définir des préférences pour certains sites web. Veuillez noter que la désactivation des cookies peut affecter la fonctionnalité de notre site web."
+    },
+    "thirdParty": {
+      "title": "Cookies tiers",
+      "content": "Nous pouvons également utiliser des services tiers tels que Google Analytics, qui peuvent définir leurs propres cookies. Ces tiers ont leurs propres politiques de confidentialité et de cookies, que nous vous encourageons à consulter."
+    },
+    "updates": {
+      "title": "Mises à jour de cette politique",
+      "content": "Nous pouvons mettre à jour cette Politique des Cookies de temps à autre pour refléter les changements dans nos pratiques ou la loi applicable. Nous vous informerons de tout changement important en publiant la politique mise à jour sur notre site web."
+    },
+    "contact": {
+      "title": "Nous contacter",
+      "content": "Si vous avez des questions sur notre utilisation des cookies, veuillez nous contacter à :"
+    }
   }
 }
