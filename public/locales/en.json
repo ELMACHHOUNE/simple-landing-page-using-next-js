@@ -310,5 +310,120 @@
       "title": "Contact Us",
       "content": "If you have any questions about our use of cookies, please contact us at:"
     }
+  },
+  "payment": {
+    "title": "Complete Your Enrollment",
+    "subtitle": "Secure payment processing for your selected program",
+    "selectedProgram": "Selected Program",
+    "selected": "Selected",
+    "oneTimePayment": "One-time payment",
+    "mostPopular": "Most Popular",
+    "backToMethods": "Back to Payment Methods",
+    "backToForm": "Back to Payment Form",
+    "methods": {
+      "creditCard": {
+        "title": "Credit Card",
+        "description": "Pay securely with your credit or debit card",
+        "instant": "Instant processing",
+        "secure": "256-bit SSL encryption"
+      },
+      "paypal": {
+        "title": "PayPal",
+        "description": "Pay with your PayPal account or linked cards",
+        "buyerProtection": "Buyer protection included",
+        "noCardNeeded": "No card details needed"
+      },
+      "bankTransfer": {
+        "title": "Bank Transfer",
+        "description": "Direct transfer from your bank account",
+        "lowFees": "Lower processing fees",
+        "secure": "Bank-level security"
+      },
+      "mobile": {
+        "title": "Mobile Payment",
+        "description": "Pay with Apple Pay, Google Pay, or mobile wallets",
+        "quick": "Quick & convenient",
+        "convenient": "Touch/Face ID authentication"
+      }
+    },
+    "form": {
+      "cardInformation": "Card Information",
+      "cardNumber": "Card Number",
+      "expiryDate": "Expiry Date",
+      "cvv": "CVV",
+      "cardholderName": "Cardholder Name",
+      "cardholderNamePlaceholder": "John Doe",
+      "contactInformation": "Contact Information",
+      "email": "Email Address",
+      "billingAddress": "Billing Address",
+      "streetAddress": "Street Address",
+      "city": "City",
+      "state": "State/Province",
+      "zipCode": "ZIP/Postal Code",
+      "country": "Country",
+      "paypalEmail": "PayPal Email",
+      "fullName": "Full Name",
+      "phone": "Phone Number",
+      "phoneNumber": "Phone Number",
+      "securePayment": "Your payment is secured with SSL encryption",
+      "proceedToReview": "Proceed to Review"
+    },
+    "paypal": {
+      "title": "Pay with PayPal",
+      "description": "You'll be redirected to PayPal to complete your payment securely",
+      "emailNote": "Enter the email associated with your PayPal account",
+      "protection": "PayPal Buyer Protection",
+      "protectionFeature1": "Purchase protection for eligible transactions",
+      "protectionFeature2": "Secure checkout without sharing card details",
+      "protectionFeature3": "24/7 customer support and dispute resolution",
+      "redirectNote": "After clicking continue, you'll be redirected to PayPal to complete your payment.",
+      "accountNote": "Don't have a PayPal account? You can still pay with a card through PayPal.",
+      "continueToPayPal": "Continue to PayPal"
+    },
+    "bankTransfer": {
+      "details": "Bank Transfer Details",
+      "bankName": "Bank Name",
+      "accountName": "Account Name",
+      "accountNumber": "Account Number",
+      "routingNumber": "Routing Number",
+      "reference": "Payment Reference",
+      "important": "Important",
+      "referenceNote": "Please include the payment reference in your transfer to ensure proper processing.",
+      "contactInfo": "Your Contact Information",
+      "instructions1": "1. Use the bank details above to make a transfer from your bank",
+      "instructions2": "2. Include the payment reference in the transfer description",
+      "instructions3": "3. We'll confirm your enrollment within 1-2 business days after receiving payment",
+      "submitRequest": "Submit Enrollment Request"
+    },
+    "mobile": {
+      "selectProvider": "Select Payment Provider",
+      "provider": "Provider",
+      "phoneNote": "We'll send a payment request to this number",
+      "howItWorks": "How it works",
+      "step1": "Select your preferred mobile payment provider",
+      "step2": "Enter your phone number linked to the service",
+      "step3": "Complete payment on your mobile device",
+      "sendPaymentRequest": "Send Payment Request"
+    },
+    "confirmation": {
+      "title": "Confirm Your Payment",
+      "programSummary": "Program Summary",
+      "program": "Program",
+      "amount": "Amount",
+      "cardNumber": "Card Number",
+      "cardholderName": "Cardholder Name",
+      "termsTitle": "Terms & Conditions",
+      "terms1": "Payment will be processed immediately upon confirmation",
+      "terms2": "You'll receive email confirmation and course access details",
+      "terms3": "Refund policy applies as per our terms of service",
+      "goBack": "Go Back",
+      "confirmPayment": "Confirm Payment"
+    },
+    "success": {
+      "title": "Payment Successful!",
+      "message": "Thank you for enrolling in MSc-GoMyCode. You'll receive a confirmation email shortly with your course access details.",
+      "goToDashboard": "Go to Dashboard",
+      "backToHome": "Back to Home"
+    }
   }
 }

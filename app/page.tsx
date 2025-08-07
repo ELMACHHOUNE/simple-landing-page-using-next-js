@@ -4,6 +4,7 @@ import ProgramsSection from "./components/sections/programs-section";
 import FeaturesSection from "./components/sections/features-section";
 import TestimonialsSection from "./components/sections/testimonials-section";
 import CTASection from "./components/sections/cta-section";
+import PaymentSection from "./components/sections/payment-section";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <StatsSection />
       <ProgramsSection />
       <FeaturesSection />
+      <PaymentSection />
       <TestimonialsSection />
       <CTASection />
     </div>

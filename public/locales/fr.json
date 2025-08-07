@@ -310,5 +310,120 @@
       "title": "Nous contacter",
       "content": "Si vous avez des questions sur notre utilisation des cookies, veuillez nous contacter à :"
     }
+  },
+  "payment": {
+    "title": "Finalisez Votre Inscription",
+    "subtitle": "Traitement de paiement sécurisé pour votre programme sélectionné",
+    "selectedProgram": "Programme Sélectionné",
+    "selected": "Sélectionné",
+    "oneTimePayment": "Paiement unique",
+    "mostPopular": "Le Plus Populaire",
+    "backToMethods": "Retour aux Méthodes de Paiement",
+    "backToForm": "Retour au Formulaire de Paiement",
+    "methods": {
+      "creditCard": {
+        "title": "Carte de Crédit",
+        "description": "Payez en toute sécurité avec votre carte de crédit ou de débit",
+        "instant": "Traitement instantané",
+        "secure": "Chiffrement SSL 256 bits"
+      },
+      "paypal": {
+        "title": "PayPal",
+        "description": "Payez avec votre compte PayPal ou cartes liées",
+        "buyerProtection": "Protection acheteur incluse",
+        "noCardNeeded": "Aucun détail de carte nécessaire"
+      },
+      "bankTransfer": {
+        "title": "Virement Bancaire",
+        "description": "Transfert direct depuis votre compte bancaire",
+        "lowFees": "Frais de traitement réduits",
+        "secure": "Sécurité de niveau bancaire"
+      },
+      "mobile": {
+        "title": "Paiement Mobile",
+        "description": "Payez avec Apple Pay, Google Pay ou portefeuilles mobiles",
+        "quick": "Rapide et pratique",
+        "convenient": "Authentification Touch/Face ID"
+      }
+    },
+    "form": {
+      "cardInformation": "Informations de Carte",
+      "cardNumber": "Numéro de Carte",
+      "expiryDate": "Date d'Expiration",
+      "cvv": "CVV",
+      "cardholderName": "Nom du Porteur",
+      "cardholderNamePlaceholder": "Jean Dupont",
+      "contactInformation": "Informations de Contact",
+      "email": "Adresse Email",
+      "billingAddress": "Adresse de Facturation",
+      "streetAddress": "Adresse de la Rue",
+      "city": "Ville",
+      "state": "État/Province",
+      "zipCode": "Code Postal",
+      "country": "Pays",
+      "paypalEmail": "Email PayPal",
+      "fullName": "Nom Complet",
+      "phone": "Numéro de Téléphone",
+      "phoneNumber": "Numéro de Téléphone",
+      "securePayment": "Votre paiement est sécurisé avec le chiffrement SSL",
+      "proceedToReview": "Procéder à la Révision"
+    },
+    "paypal": {
+      "title": "Payer avec PayPal",
+      "description": "Vous serez redirigé vers PayPal pour finaliser votre paiement en toute sécurité",
+      "emailNote": "Entrez l'email associé à votre compte PayPal",
+      "protection": "Protection Acheteur PayPal",
+      "protectionFeature1": "Protection d'achat pour les transactions éligibles",
+      "protectionFeature2": "Paiement sécurisé sans partager les détails de carte",
+      "protectionFeature3": "Support client 24/7 et résolution de litiges",
+      "redirectNote": "Après avoir cliqué sur continuer, vous serez redirigé vers PayPal pour finaliser votre paiement.",
+      "accountNote": "Vous n'avez pas de compte PayPal ? Vous pouvez toujours payer avec une carte via PayPal.",
+      "continueToPayPal": "Continuer vers PayPal"
+    },
+    "bankTransfer": {
+      "details": "Détails du Virement Bancaire",
+      "bankName": "Nom de la Banque",
+      "accountName": "Nom du Compte",
+      "accountNumber": "Numéro de Compte",
+      "routingNumber": "Numéro de Routage",
+      "reference": "Référence de Paiement",
+      "important": "Important",
+      "referenceNote": "Veuillez inclure la référence de paiement dans votre virement pour assurer un traitement approprié.",
+      "contactInfo": "Vos Informations de Contact",
+      "instructions1": "1. Utilisez les détails bancaires ci-dessus pour effectuer un virement depuis votre banque",
+      "instructions2": "2. Incluez la référence de paiement dans la description du virement",
+      "instructions3": "3. Nous confirmerons votre inscription dans 1-2 jours ouvrables après réception du paiement",
+      "submitRequest": "Soumettre la Demande d'Inscription"
+    },
+    "mobile": {
+      "selectProvider": "Sélectionner le Fournisseur de Paiement",
+      "provider": "Fournisseur",
+      "phoneNote": "Nous enverrons une demande de paiement à ce numéro",
+      "howItWorks": "Comment ça marche",
+      "step1": "Sélectionnez votre fournisseur de paiement mobile préféré",
+      "step2": "Entrez votre numéro de téléphone lié au service",
+      "step3": "Finalisez le paiement sur votre appareil mobile",
+      "sendPaymentRequest": "Envoyer la Demande de Paiement"
+    },
+    "confirmation": {
+      "title": "Confirmez Votre Paiement",
+      "programSummary": "Résumé du Programme",
+      "program": "Programme",
+      "amount": "Montant",
+      "cardNumber": "Numéro de Carte",
+      "cardholderName": "Nom du Porteur",
+      "termsTitle": "Termes et Conditions",
+      "terms1": "Le paiement sera traité immédiatement après confirmation",
+      "terms2": "Vous recevrez une confirmation par email et les détails d'accès au cours",
+      "terms3": "La politique de remboursement s'applique selon nos conditions de service",
+      "goBack": "Retour",
+      "confirmPayment": "Confirmer le Paiement"
+    },
+    "success": {
+      "title": "Paiement Réussi !",
+      "message": "Merci de vous être inscrit à MSc-GoMyCode. Vous recevrez bientôt un email de confirmation avec les détails d'accès à votre cours.",
+      "goToDashboard": "Aller au Tableau de Bord",
+      "backToHome": "Retour à l'Accueil"
+    }
   }
 }
