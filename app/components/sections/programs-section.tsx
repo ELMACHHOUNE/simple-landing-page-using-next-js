@@ -1,4 +1,4 @@
-/* filepath: /c:/Users/LenOvo/Desktop/master/next project/msc_next_project/app/components/sections/programs-section.tsx */
+"use client";
 import {
   Card,
   CardContent,
@@ -8,48 +8,46 @@ import {
 } from "@/app/components/ui/card";
 import { Badge } from "@/app/components/ui/badge";
 import { Button } from "@/app/components/ui/button";
+import { useLanguage } from "@/app/contexts/language-context";
 
 const programs = [
   {
-    title: "Full Stack Development",
-    description:
-      "Master both frontend and backend technologies with React, Node.js, and databases.",
+    titleKey: "programs.fullStack.title",
+    descriptionKey: "programs.fullStack.description",
     duration: "6 months",
-    level: "Beginner to Advanced",
+    levelKey: "programs.levels.beginnerToAdvanced",
     skills: ["React", "Node.js", "MongoDB", "TypeScript"],
     popular: true,
   },
   {
-    title: "Frontend Specialist",
-    description:
-      "Focus on creating beautiful, responsive user interfaces and experiences.",
+    titleKey: "programs.frontend.title",
+    descriptionKey: "programs.frontend.description",
     duration: "4 months",
-    level: "Beginner to Intermediate",
+    levelKey: "programs.levels.beginnerToIntermediate",
     skills: ["React", "Vue.js", "CSS/SASS", "JavaScript"],
     popular: false,
   },
   {
-    title: "Backend Engineering",
-    description:
-      "Build robust server-side applications and APIs with modern frameworks.",
+    titleKey: "programs.backend.title",
+    descriptionKey: "programs.backend.description",
     duration: "5 months",
-    level: "Intermediate to Advanced",
+    levelKey: "programs.levels.intermediateToAdvanced",
     skills: ["Node.js", "Python", "PostgreSQL", "AWS"],
     popular: false,
   },
 ];
 
 export default function ProgramsSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="programs" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Choose Your Path
+            {t("programs.title")}
           </h2>
-          <p className="text-xl text-gray-600">
-            Specialized programs designed for your career goals
-          </p>
+          <p className="text-xl text-gray-600">{t("programs.subtitle")}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -62,28 +60,32 @@ export default function ProgramsSection() {
             >
               {program.popular && (
                 <Badge className="absolute -top-3 left-6 bg-blue-600 text-white hover:bg-blue-700">
-                  Most Popular
+                  {t("programs.mostPopular")}
                 </Badge>
               )}
               <CardHeader>
                 <CardTitle className="text-xl font-bold">
-                  {program.title}
+                  {t(program.titleKey)}
                 </CardTitle>
                 <CardDescription className="text-gray-600">
-                  {program.description}
+                  {t(program.descriptionKey)}
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-500">Duration:</span>
+                  <span className="text-gray-500">
+                    {t("programs.duration")}
+                  </span>
                   <span className="font-semibold">{program.duration}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-500">Level:</span>
-                  <span className="font-semibold">{program.level}</span>
+                  <span className="text-gray-500">{t("programs.level")}</span>
+                  <span className="font-semibold">{t(program.levelKey)}</span>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500 mb-2">Key Skills:</p>
+                  <p className="text-sm text-gray-500 mb-2">
+                    {t("programs.keySkills")}
+                  </p>
                   <div className="flex flex-wrap gap-2">
                     {program.skills.map((skill, skillIndex) => (
                       <Badge
@@ -100,7 +102,7 @@ export default function ProgramsSection() {
                   className="w-full mt-4"
                   variant={program.popular ? "default" : "outline"}
                 >
-                  Learn More
+                  {t("programs.learnMore")}
                 </Button>
               </CardContent>
             </Card>

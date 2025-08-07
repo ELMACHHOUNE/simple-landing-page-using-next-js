@@ -15,12 +15,14 @@ import { Input } from "@/app/components/ui/input";
 import { Label } from "@/app/components/ui/label";
 import { Separator } from "@/app/components/ui/separator";
 import { Eye, EyeOff, Github, Mail } from "lucide-react";
+import { useLanguage } from "@/app/contexts/language-context";
 
 interface SignInDialogProps {
   children: React.ReactNode;
 }
 
 export default function SignInDialog({ children }: SignInDialogProps) {
+  const { t } = useLanguage();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -43,10 +45,10 @@ export default function SignInDialog({ children }: SignInDialogProps) {
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-center">
-            Welcome Back
+            {t("auth.signIn.title")}
           </DialogTitle>
           <DialogDescription className="text-center">
-            Sign in to your MSc-GoMyCode account
+            {t("auth.signIn.description")}
           </DialogDescription>
         </DialogHeader>
 
@@ -55,11 +57,11 @@ export default function SignInDialog({ children }: SignInDialogProps) {
           <div className="grid grid-cols-2 gap-4">
             <Button variant="outline" className="w-full">
               <Github className="mr-2 h-4 w-4" />
-              GitHub
+              {t("auth.signIn.github")}
             </Button>
             <Button variant="outline" className="w-full">
               <Mail className="mr-2 h-4 w-4" />
-              Google
+              {t("auth.signIn.google")}
             </Button>
           </div>
 
@@ -69,7 +71,7 @@ export default function SignInDialog({ children }: SignInDialogProps) {
             </div>
             <div className="relative flex justify-center text-xs uppercase">
               <span className="bg-background px-2 text-muted-foreground">
-                Or continue with email
+                {t("auth.signIn.orContinueWith")}
               </span>
             </div>
           </div>
@@ -77,11 +79,11 @@ export default function SignInDialog({ children }: SignInDialogProps) {
           {/* Email/Password Form */}
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">{t("auth.signIn.email")}</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t("auth.signIn.emailPlaceholder")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -89,12 +91,12 @@ export default function SignInDialog({ children }: SignInDialogProps) {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">{t("auth.signIn.password")}</Label>
               <div className="relative">
                 <Input
                   id="password"
                   type={showPassword ? "text" : "password"}
-                  placeholder="Enter your password"
+                  placeholder={t("auth.signIn.passwordPlaceholder")}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
@@ -118,10 +120,10 @@ export default function SignInDialog({ children }: SignInDialogProps) {
             <div className="flex items-center justify-between text-sm">
               <label className="flex items-center space-x-2">
                 <input type="checkbox" className="rounded" />
-                <span>Remember me</span>
+                <span>{t("auth.signIn.rememberMe")}</span>
               </label>
               <Button variant="link" className="p-0 h-auto text-sm">
-                Forgot password?
+                {t("auth.signIn.forgotPassword")}
               </Button>
             </div>
 
@@ -130,16 +132,18 @@ export default function SignInDialog({ children }: SignInDialogProps) {
               className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
               disabled={isLoading}
             >
-              {isLoading ? "Signing in..." : "Sign In"}
+              {isLoading
+                ? t("auth.signIn.signingIn")
+                : t("auth.signIn.signInButton")}
             </Button>
           </form>
 
           <div className="text-center text-sm">
             <span className="text-muted-foreground">
-              Don&apos;t have an account?{" "}
+              {t("auth.signIn.noAccount")}{" "}
             </span>
             <Button variant="link" className="p-0 h-auto text-sm">
-              Sign up
+              {t("auth.signIn.signUp")}
             </Button>
           </div>
         </div>

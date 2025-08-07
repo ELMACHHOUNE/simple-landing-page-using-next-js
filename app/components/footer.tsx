@@ -1,4 +1,4 @@
-/* filepath: /c:/Users/LenOvo/Desktop/master/next project/msc_next_project/app/components/footer.tsx */
+"use client";
 import { Button } from "@/app/components/ui/button";
 import { Separator } from "@/app/components/ui/separator";
 import {
@@ -12,8 +12,11 @@ import {
   Linkedin,
   Github,
 } from "lucide-react";
+import { useLanguage } from "@/app/contexts/language-context";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-gray-900 text-white">
       {/* Main Footer Content */}
@@ -28,9 +31,7 @@ export default function Footer() {
               <span className="text-xl font-bold">MSc-GoMyCode</span>
             </div>
             <p className="text-gray-300 leading-relaxed text-sm md:text-base">
-              Transforming careers through comprehensive coding education. Join
-              thousands of developers who&apos;ve launched their tech careers
-              with us.
+              {t("footer.description")}
             </p>
             <div className="flex space-x-3">
               <Button
@@ -78,14 +79,16 @@ export default function Footer() {
 
           {/* Programs */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Programs</h3>
+            <h3 className="text-lg font-semibold text-white">
+              {t("footer.programs")}
+            </h3>
             <ul className="space-y-3">
               <li>
                 <a
                   href="#programs"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base block py-1"
                 >
-                  Full Stack Development
+                  {t("programs.fullStack.title")}
                 </a>
               </li>
               <li>
@@ -93,7 +96,7 @@ export default function Footer() {
                   href="#programs"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base block py-1"
                 >
-                  Frontend Specialist
+                  {t("programs.frontend.title")}
                 </a>
               </li>
               <li>
@@ -101,7 +104,7 @@ export default function Footer() {
                   href="#programs"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base block py-1"
                 >
-                  Backend Engineering
+                  {t("programs.backend.title")}
                 </a>
               </li>
               <li>
@@ -125,14 +128,16 @@ export default function Footer() {
 
           {/* Company */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Company</h3>
+            <h3 className="text-lg font-semibold text-white">
+              {t("footer.company")}
+            </h3>
             <ul className="space-y-3">
               <li>
                 <a
                   href="#about"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base block py-1"
                 >
-                  About Us
+                  {t("footer.aboutUs")}
                 </a>
               </li>
               <li>
@@ -140,7 +145,7 @@ export default function Footer() {
                   href="#about"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base block py-1"
                 >
-                  Our Story
+                  {t("footer.ourStory")}
                 </a>
               </li>
               <li>
@@ -148,7 +153,7 @@ export default function Footer() {
                   href="#careers"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base block py-1"
                 >
-                  Careers
+                  {t("footer.careers")}
                 </a>
               </li>
               <li>
@@ -156,7 +161,7 @@ export default function Footer() {
                   href="#press"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base block py-1"
                 >
-                  Press & Media
+                  {t("footer.press")}
                 </a>
               </li>
               <li>
@@ -164,7 +169,7 @@ export default function Footer() {
                   href="#partnership"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base block py-1"
                 >
-                  Partnership
+                  {t("footer.partnership")}
                 </a>
               </li>
             </ul>
@@ -172,7 +177,9 @@ export default function Footer() {
 
           {/* Contact & Support */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Get in Touch</h3>
+            <h3 className="text-lg font-semibold text-white">
+              {t("footer.getInTouch")}
+            </h3>
             <div className="space-y-3">
               <div className="flex items-start space-x-3 text-gray-300">
                 <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" />
@@ -199,14 +206,16 @@ export default function Footer() {
             </div>
 
             <div className="pt-4">
-              <h4 className="text-sm font-semibold mb-3 text-white">Support</h4>
+              <h4 className="text-sm font-semibold mb-3 text-white">
+                {t("footer.support")}
+              </h4>
               <ul className="space-y-2">
                 <li>
                   <a
                     href="#help"
                     className="text-gray-300 hover:text-white transition-colors text-sm block py-1"
                   >
-                    Help Center
+                    {t("footer.helpCenter")}
                   </a>
                 </li>
                 <li>
@@ -214,7 +223,7 @@ export default function Footer() {
                     href="#portal"
                     className="text-gray-300 hover:text-white transition-colors text-sm block py-1"
                   >
-                    Student Portal
+                    {t("footer.studentPortal")}
                   </a>
                 </li>
                 <li>
@@ -222,7 +231,7 @@ export default function Footer() {
                     href="#community"
                     className="text-gray-300 hover:text-white transition-colors text-sm block py-1"
                   >
-                    Community Forum
+                    {t("footer.community")}
                   </a>
                 </li>
               </ul>
@@ -237,7 +246,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-4 md:py-6">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="text-gray-300 text-sm text-center md:text-left">
-            © 2025 MSc-GoMyCode. All rights reserved.
+            {t("footer.copyright")}
           </div>
 
           <div className="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6 text-sm">
@@ -245,19 +254,19 @@ export default function Footer() {
               href="#privacy"
               className="text-gray-300 hover:text-white transition-colors"
             >
-              Privacy Policy
+              {t("footer.privacyPolicy")}
             </a>
             <a
               href="#terms"
               className="text-gray-300 hover:text-white transition-colors"
             >
-              Terms of Service
+              {t("footer.termsOfService")}
             </a>
             <a
               href="#cookies"
               className="text-gray-300 hover:text-white transition-colors"
             >
-              Cookie Policy
+              {t("footer.cookiePolicy")}
             </a>
           </div>
         </div>
