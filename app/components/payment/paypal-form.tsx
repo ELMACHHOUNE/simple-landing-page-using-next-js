@@ -13,19 +13,21 @@ import { Label } from "@/app/components/ui/label";
 import { useLanguage } from "@/app/contexts/language-context";
 import { ArrowLeft, Shield, CheckCircle } from "lucide-react";
 
-interface PayPalFormProps {
-  onSubmit: (data: any) => void;
-  onBack: () => void;
-  program?: any;
+interface PayPalData {
+  paypalEmail: string;
+  fullName: string;
+  phone: string;
+  [key: string]: string;
 }
 
-export default function PayPalForm({
-  onSubmit,
-  onBack,
-  program,
-}: PayPalFormProps) {
+interface PayPalFormProps {
+  onSubmit: (data: PayPalData) => void;
+  onBack: () => void;
+}
+
+export default function PayPalForm({ onSubmit, onBack }: PayPalFormProps) {
   const { t } = useLanguage();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<PayPalData>({
     paypalEmail: "",
     fullName: "",
     phone: "",

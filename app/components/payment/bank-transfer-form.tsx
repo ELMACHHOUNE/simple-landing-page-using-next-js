@@ -13,19 +13,33 @@ import { Label } from "@/app/components/ui/label";
 import { useLanguage } from "@/app/contexts/language-context";
 import { ArrowLeft, AlertTriangle, Copy } from "lucide-react";
 
+interface BankDetails {
+  bankName: string;
+  accountName: string;
+  accountNumber: string;
+  routingNumber: string;
+  reference: string;
+}
+
+interface BankTransferData {
+  fullName: string;
+  email: string;
+  phone: string;
+  bankDetails?: BankDetails;
+  [key: string]: string | BankDetails | undefined;
+}
+
 interface BankTransferFormProps {
-  onSubmit: (data: any) => void;
+  onSubmit: (data: BankTransferData) => void;
   onBack: () => void;
-  program?: any;
 }
 
 export default function BankTransferForm({
   onSubmit,
   onBack,
-  program,
 }: BankTransferFormProps) {
   const { t } = useLanguage();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<BankTransferData>({
     fullName: "",
     email: "",
     phone: "",

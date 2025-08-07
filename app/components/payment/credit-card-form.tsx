@@ -13,19 +13,31 @@ import { Label } from "@/app/components/ui/label";
 import { useLanguage } from "@/app/contexts/language-context";
 import { ArrowLeft, Shield } from "lucide-react";
 
+interface CreditCardData {
+  cardNumber: string;
+  expiryDate: string;
+  cvv: string;
+  cardholderName: string;
+  email: string;
+  streetAddress: string;
+  city: string;
+  state: string;
+  zipCode: string;
+  country: string;
+  [key: string]: string;
+}
+
 interface CreditCardFormProps {
-  onSubmit: (data: any) => void;
+  onSubmit: (data: CreditCardData) => void;
   onBack: () => void;
-  program?: any;
 }
 
 export default function CreditCardForm({
   onSubmit,
   onBack,
-  program,
 }: CreditCardFormProps) {
   const { t } = useLanguage();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<CreditCardData>({
     cardNumber: "",
     expiryDate: "",
     cvv: "",

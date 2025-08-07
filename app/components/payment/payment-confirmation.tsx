@@ -18,10 +18,40 @@ import {
 } from "lucide-react";
 import type { PaymentMethod } from "@/app/components/sections/payment-section";
 
+interface BankDetails {
+  bankName: string;
+  accountName: string;
+  accountNumber: string;
+  routingNumber: string;
+  reference: string;
+}
+
+interface PaymentData {
+  method?: string;
+  amount?: string;
+  currency?: string;
+  cardNumber?: string;
+  cardholderName?: string;
+  email?: string;
+  fullName?: string;
+  paypalEmail?: string;
+  phoneNumber?: string;
+  provider?: string;
+  bankDetails?: BankDetails;
+  [key: string]: string | number | BankDetails | undefined;
+}
+
+interface SelectedPlan {
+  id: string;
+  titleKey: string;
+  price: string;
+  duration: string;
+}
+
 interface PaymentConfirmationProps {
   method: PaymentMethod;
-  paymentData: any;
-  program?: any;
+  paymentData: PaymentData;
+  program?: SelectedPlan;
   onConfirm: () => void;
   onBack: () => void;
 }
@@ -70,17 +100,22 @@ export default function PaymentConfirmation({
               <span className="text-gray-600">
                 {t("payment.confirmation.cardNumber")}
               </span>
-              <span>**** **** **** {paymentData.cardNumber?.slice(-4)}</span>
+              <span>
+                **** **** ****{" "}
+                {typeof paymentData.cardNumber === "string"
+                  ? paymentData.cardNumber.slice(-4)
+                  : "****"}
+              </span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">
                 {t("payment.confirmation.cardholderName")}
               </span>
-              <span>{paymentData.cardholderName}</span>
+              <span>{String(paymentData.cardholderName || "")}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">{t("payment.form.email")}</span>
-              <span>{paymentData.email}</span>
+              <span>{String(paymentData.email || "")}</span>
             </div>
           </div>
         );
@@ -90,7 +125,9 @@ export default function PaymentConfirmation({
             <span className="text-gray-600">
               {t("payment.form.paypalEmail")}
             </span>
-            <span>{paymentData.email}</span>
+            <span>
+              {String(paymentData.paypalEmail || paymentData.email || "")}
+            </span>
           </div>
         );
       case "bank-transfer":
@@ -100,18 +137,18 @@ export default function PaymentConfirmation({
               <span className="text-gray-600">
                 {t("payment.form.fullName")}
               </span>
-              <span>{paymentData.fullName}</span>
+              <span>{String(paymentData.fullName || "")}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">{t("payment.form.email")}</span>
-              <span>{paymentData.email}</span>
+              <span>{String(paymentData.email || "")}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">
                 {t("payment.bankTransfer.reference")}
               </span>
               <span className="font-mono">
-                {paymentData.bankDetails?.reference}
+                {paymentData.bankDetails?.reference || ""}
               </span>
             </div>
           </div>
@@ -124,14 +161,14 @@ export default function PaymentConfirmation({
                 {t("payment.mobile.provider")}
               </span>
               <span className="capitalize">
-                {paymentData.provider?.replace("-", " ")}
+                {String(paymentData.provider || "").replace("-", " ")}
               </span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">
                 {t("payment.form.phoneNumber")}
               </span>
-              <span>{paymentData.phoneNumber}</span>
+              <span>{String(paymentData.phoneNumber || "")}</span>
             </div>
           </div>
         );

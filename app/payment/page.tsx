@@ -7,16 +7,26 @@ import { useLanguage } from "@/app/contexts/language-context";
 import { Button } from "@/app/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 
+interface SelectedPlan {
+  id: string;
+  titleKey: string;
+  price: string;
+  duration: string;
+}
+
 export default function PaymentPage() {
   const { t } = useLanguage();
   const router = useRouter();
-  const [selectedProgram, setSelectedProgram] = useState<any>(null);
+  const [selectedProgram, setSelectedProgram] = useState<SelectedPlan | null>(
+    null
+  );
 
   useEffect(() => {
     // Get selected plan from localStorage
     const storedPlan = localStorage.getItem("selectedPlan");
     if (storedPlan) {
-      setSelectedProgram(JSON.parse(storedPlan));
+      const plan = JSON.parse(storedPlan) as SelectedPlan;
+      setSelectedProgram(plan);
     } else {
       // If no plan selected, redirect to home
       router.push("/");
@@ -33,6 +43,14 @@ export default function PaymentPage() {
     );
   }
 
+  // Convert SelectedPlan to the format expected by PaymentSection
+  const programForPayment = {
+    id: selectedProgram.id,
+    titleKey: selectedProgram.titleKey,
+    price: parseInt(selectedProgram.price) || 0,
+    duration: selectedProgram.duration,
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-white border-b">
@@ -48,7 +66,7 @@ export default function PaymentPage() {
         </div>
       </div>
 
-      <PaymentSection selectedProgram={selectedProgram} />
+      <PaymentSection selectedProgram={programForPayment} />
     </div>
   );
 }

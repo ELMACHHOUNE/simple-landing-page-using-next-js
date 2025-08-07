@@ -13,19 +13,25 @@ import { Label } from "@/app/components/ui/label";
 import { useLanguage } from "@/app/contexts/language-context";
 import { ArrowLeft, Smartphone } from "lucide-react";
 
+interface MobilePaymentData {
+  phoneNumber: string;
+  provider: string;
+  fullName: string;
+  email: string;
+  [key: string]: string;
+}
+
 interface MobilePaymentFormProps {
-  onSubmit: (data: any) => void;
+  onSubmit: (data: MobilePaymentData) => void;
   onBack: () => void;
-  program?: any;
 }
 
 export default function MobilePaymentForm({
   onSubmit,
   onBack,
-  program,
 }: MobilePaymentFormProps) {
   const { t } = useLanguage();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<MobilePaymentData>({
     provider: "",
     phoneNumber: "",
     fullName: "",

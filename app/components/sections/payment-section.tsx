@@ -10,14 +10,7 @@ import {
 import { Button } from "@/app/components/ui/button";
 import { Badge } from "@/app/components/ui/badge";
 import { useLanguage } from "@/app/contexts/language-context";
-import {
-  CreditCard,
-  DollarSign,
-  Building,
-  Smartphone,
-  ArrowLeft,
-  CheckCircle,
-} from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import PaymentMethodSelector from "@/app/components/payment/payment-method-selector";
 import CreditCardForm from "@/app/components/payment/credit-card-form";
 import PayPalForm from "@/app/components/payment/paypal-form";
@@ -36,8 +29,21 @@ export type PaymentStep =
   | "confirmation"
   | "success";
 
+interface BankDetails {
+  bankName: string;
+  accountName: string;
+  accountNumber: string;
+  routingNumber: string;
+  reference: string;
+}
+
+interface PaymentFormData {
+  [key: string]: string | number | BankDetails | undefined;
+}
+
 interface PaymentSectionProps {
   selectedProgram?: {
+    id?: string;
     titleKey: string;
     price: number;
     duration: string;
@@ -53,14 +59,14 @@ export default function PaymentSection({
   const [selectedMethod, setSelectedMethod] = useState<PaymentMethod | null>(
     null
   );
-  const [paymentData, setPaymentData] = useState<any>(null);
+  const [paymentData, setPaymentData] = useState<PaymentFormData>({});
 
   const handleMethodSelect = (method: PaymentMethod) => {
     setSelectedMethod(method);
     setCurrentStep("payment-form");
   };
 
-  const handlePaymentSubmit = (data: any) => {
+  const handlePaymentSubmit = (data: PaymentFormData) => {
     setPaymentData(data);
     setCurrentStep("confirmation");
   };
@@ -82,21 +88,35 @@ export default function PaymentSection({
   const renderPaymentForm = () => {
     if (!selectedMethod) return null;
 
-    const commonProps = {
-      onSubmit: handlePaymentSubmit,
-      onBack: handleBackToMethod,
-      program: selectedProgram,
-    };
-
     switch (selectedMethod) {
       case "credit-card":
-        return <CreditCardForm {...commonProps} />;
+        return (
+          <CreditCardForm
+            onSubmit={handlePaymentSubmit}
+            onBack={handleBackToMethod}
+          />
+        );
       case "paypal":
-        return <PayPalForm {...commonProps} />;
+        return (
+          <PayPalForm
+            onSubmit={handlePaymentSubmit}
+            onBack={handleBackToMethod}
+          />
+        );
       case "bank-transfer":
-        return <BankTransferForm {...commonProps} />;
+        return (
+          <BankTransferForm
+            onSubmit={handlePaymentSubmit}
+            onBack={handleBackToMethod}
+          />
+        );
       case "mobile":
-        return <MobilePaymentForm {...commonProps} />;
+        return (
+          <MobilePaymentForm
+            onSubmit={handlePaymentSubmit}
+            onBack={handleBackToMethod}
+          />
+        );
       default:
         return null;
     }
@@ -189,7 +209,16 @@ export default function PaymentSection({
             <PaymentConfirmation
               method={selectedMethod!}
               paymentData={paymentData}
-              program={selectedProgram}
+              program={
+                selectedProgram
+                  ? {
+                      id: selectedProgram.id || "unknown",
+                      titleKey: selectedProgram.titleKey,
+                      price: selectedProgram.price.toString(),
+                      duration: selectedProgram.duration,
+                    }
+                  : undefined
+              }
               onConfirm={handleConfirmPayment}
               onBack={handleBackToForm}
             />
