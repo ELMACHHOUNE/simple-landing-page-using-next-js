@@ -8,15 +8,39 @@ import {
   CardTitle,
 } from "@/app/components/ui/card";
 import { Button } from "@/app/components/ui/button";
-import { Badge } from "@/app/components/ui/badge";
 import { Check, Star, Users, Clock, TrendingUp } from "lucide-react";
 import { useRouter } from "next/navigation";
+
+interface CourseData {
+  title: string;
+  description: string;
+  duration: string;
+  students: string;
+  level: string;
+  price: string;
+  originalPrice: string;
+  features: string[];
+}
+
+interface Plan {
+  id: string;
+  popular: boolean;
+  icon: React.ReactNode;
+  badge: string | null;
+}
+
+interface PlanData {
+  id: string;
+  titleKey: string;
+  price: string;
+  duration: string;
+}
 
 export default function PlansSection() {
   const { t } = useLanguage();
   const router = useRouter();
 
-  const plans = [
+  const plans: Plan[] = [
     {
       id: "frontend",
       popular: false,
@@ -27,29 +51,34 @@ export default function PlansSection() {
       id: "fullstack",
       popular: true,
       icon: <Star className="h-6 w-6" />,
-      badge: t("plans.popular"),
+      badge: (t("plans.popular") as string) || "Popular",
     },
     {
       id: "backend",
       popular: false,
       icon: <Users className="h-6 w-6" />,
-      badge: t("plans.bestValue"),
+      badge: (t("plans.bestValue") as string) || "Best Value",
     },
   ];
 
   const handleEnrollNow = (planId: string) => {
-    const planData = {
-      id: planId,
-      titleKey: `plans.courses.${planId}.title`,
-      price: t(`plans.courses.${planId}.price`),
-      duration: t(`plans.courses.${planId}.duration`),
-    };
+    try {
+      const courseData = t(`plans.courses.${planId}`) as unknown as CourseData;
 
-    // Store selected plan in localStorage or state management
-    localStorage.setItem("selectedPlan", JSON.stringify(planData));
+      const planData: PlanData = {
+        id: planId,
+        titleKey: `plans.courses.${planId}.title`,
+        price: courseData?.price || "0",
+        duration: courseData?.duration || "",
+      };
 
-    // Redirect to payment page
-    router.push("/payment");
+      if (typeof window !== "undefined") {
+        localStorage.setItem("selectedPlan", JSON.stringify(planData));
+      }
+      router.push("/payment");
+    } catch (error) {
+      console.error("Error handling enrollment:", error);
+    }
   };
 
   return (
@@ -57,16 +86,30 @@ export default function PlansSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            {t("plans.title")}
+            {(t("plans.title") as string) || "Our Plans"}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            {t("plans.subtitle")}
+            {(t("plans.subtitle") as string) ||
+              "Choose the perfect plan for your learning journey"}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {plans.map((plan) => {
-            const course = t(`plans.courses.${plan.id}`);
+            const course = t(`plans.courses.${plan.id}`) as unknown as
+              | CourseData
+              | undefined;
+
+            const courseData: CourseData = {
+              title: course?.title || "Course Title",
+              description: course?.description || "Course description",
+              duration: course?.duration || "Duration not specified",
+              students: course?.students || "Students info not available",
+              level: course?.level || "Level not specified",
+              price: course?.price || "0",
+              originalPrice: course?.originalPrice || "0",
+              features: Array.isArray(course?.features) ? course.features : [],
+            };
 
             return (
               <Card
@@ -95,34 +138,37 @@ export default function PlansSection() {
                   </div>
 
                   <CardTitle className="text-2xl font-bold text-gray-900 mb-2">
-                    {course.title}
+                    {courseData.title}
                   </CardTitle>
 
-                  <p className="text-gray-600 mb-4">{course.description}</p>
+                  <p className="text-gray-600 mb-4">{courseData.description}</p>
 
                   <div className="space-y-2 mb-4">
                     <div className="flex items-center justify-center space-x-2 text-gray-500">
                       <Clock className="h-4 w-4" />
-                      <span className="text-sm">{course.duration}</span>
+                      <span className="text-sm">{courseData.duration}</span>
                     </div>
                     <div className="flex items-center justify-center space-x-2 text-gray-500">
                       <Users className="h-4 w-4" />
-                      <span className="text-sm">{course.students}</span>
+                      <span className="text-sm">{courseData.students}</span>
                     </div>
-                    <div className="text-sm text-gray-600">{course.level}</div>
+                    <div className="text-sm text-gray-600">
+                      {courseData.level}
+                    </div>
                   </div>
 
                   <div className="text-center">
                     <div className="flex items-center justify-center space-x-2 mb-2">
                       <span className="text-3xl font-bold text-gray-900">
-                        ${course.price}
+                        ${courseData.price}
                       </span>
                       <span className="text-lg text-gray-500 line-through">
-                        ${course.originalPrice}
+                        ${courseData.originalPrice}
                       </span>
                     </div>
                     <p className="text-sm text-gray-500">
-                      {t("payment.oneTimePayment")}
+                      {(t("payment.oneTimePayment") as string) ||
+                        "One-time payment"}
                     </p>
                   </div>
                 </CardHeader>
@@ -130,10 +176,10 @@ export default function PlansSection() {
                 <CardContent className="pt-0">
                   <div className="mb-6">
                     <h4 className="font-semibold text-gray-900 mb-3">
-                      {t("plans.whatYouGet")}
+                      {(t("plans.whatYouGet") as string) || "What you'll get:"}
                     </h4>
                     <ul className="space-y-2">
-                      {(course.features || [])
+                      {courseData.features
                         .slice(0, 6)
                         .map((feature: string, index: number) => (
                           <li
@@ -146,9 +192,9 @@ export default function PlansSection() {
                             </span>
                           </li>
                         ))}
-                      {(course.features || []).length > 6 && (
+                      {courseData.features.length > 6 && (
                         <li className="text-sm text-gray-500 ml-6">
-                          +{(course.features || []).length - 6} more features
+                          +{courseData.features.length - 6} more features
                         </li>
                       )}
                     </ul>
@@ -163,18 +209,22 @@ export default function PlansSection() {
                           : "bg-gray-900 hover:bg-gray-800"
                       }`}
                     >
-                      {t("plans.enrollNow")}
+                      {(t("plans.enrollNow") as string) || "Enroll Now"}
                     </Button>
                     <Button
                       variant="outline"
                       className="w-full"
                       onClick={() => {
-                        document.getElementById("programs")?.scrollIntoView({
-                          behavior: "smooth",
-                        });
+                        const programsElement =
+                          document.getElementById("programs");
+                        if (programsElement) {
+                          programsElement.scrollIntoView({
+                            behavior: "smooth",
+                          });
+                        }
                       }}
                     >
-                      {t("plans.learnMore")}
+                      {(t("plans.learnMore") as string) || "Learn More"}
                     </Button>
                   </div>
                 </CardContent>
@@ -184,23 +234,35 @@ export default function PlansSection() {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4">{t("plans.startLearning")}</p>
+          <p className="text-gray-600 mb-4">
+            {(t("plans.startLearning") as string) ||
+              "Start your learning journey today"}
+          </p>
           <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-500">
             <div className="flex items-center space-x-2">
               <Check className="h-4 w-4 text-green-500" />
-              <span>{t("plans.features.mentorship")}</span>
+              <span>
+                {(t("plans.features.mentorship") as string) ||
+                  "Expert Mentorship"}
+              </span>
             </div>
             <div className="flex items-center space-x-2">
               <Check className="h-4 w-4 text-green-500" />
-              <span>{t("plans.features.projects")}</span>
+              <span>
+                {(t("plans.features.projects") as string) || "Real Projects"}
+              </span>
             </div>
             <div className="flex items-center space-x-2">
               <Check className="h-4 w-4 text-green-500" />
-              <span>{t("plans.features.certificate")}</span>
+              <span>
+                {(t("plans.features.certificate") as string) || "Certificate"}
+              </span>
             </div>
             <div className="flex items-center space-x-2">
               <Check className="h-4 w-4 text-green-500" />
-              <span>{t("plans.features.placement")}</span>
+              <span>
+                {(t("plans.features.placement") as string) || "Job Placement"}
+              </span>
             </div>
           </div>
         </div>
