@@ -6,16 +6,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/app/components/ui/card";
-import { Badge } from "@/app/components/ui/badge";
+import { Button } from "@/app/components/ui/button";
 import { useLanguage } from "@/app/contexts/language-context";
-import {
-  CreditCard,
-  DollarSign,
-  Building,
-  Smartphone,
-  Star,
-} from "lucide-react";
-import type { PaymentMethod } from "@/app/components/sections/payment-section";
+import { CreditCard, DollarSign, Building, Smartphone } from "lucide-react";
+import { PaymentMethod } from "@/app/components/sections/payment-section";
 
 interface PaymentMethodSelectorProps {
   onMethodSelect: (method: PaymentMethod) => void;
@@ -29,51 +23,43 @@ export default function PaymentMethodSelector({
   const paymentMethods = [
     {
       id: "credit-card" as PaymentMethod,
-      icon: CreditCard,
-      titleKey: "payment.methods.creditCard.title",
-      descriptionKey: "payment.methods.creditCard.description",
-      popular: true,
+      icon: <CreditCard className="h-8 w-8" />,
+      title: t("payment.methods.creditCard.title"),
+      description: t("payment.methods.creditCard.description"),
       features: [
-        "payment.methods.creditCard.instant",
-        "payment.methods.creditCard.secure",
+        t("payment.methods.creditCard.instant"),
+        t("payment.methods.creditCard.secure"),
       ],
-      color: "blue",
     },
     {
       id: "paypal" as PaymentMethod,
-      icon: DollarSign,
-      titleKey: "payment.methods.paypal.title",
-      descriptionKey: "payment.methods.paypal.description",
-      popular: false,
+      icon: <DollarSign className="h-8 w-8" />,
+      title: t("payment.methods.paypal.title"),
+      description: t("payment.methods.paypal.description"),
       features: [
-        "payment.methods.paypal.buyerProtection",
-        "payment.methods.paypal.noCardNeeded",
+        t("payment.methods.paypal.buyerProtection"),
+        t("payment.methods.paypal.noCardNeeded"),
       ],
-      color: "indigo",
     },
     {
       id: "bank-transfer" as PaymentMethod,
-      icon: Building,
-      titleKey: "payment.methods.bankTransfer.title",
-      descriptionKey: "payment.methods.bankTransfer.description",
-      popular: false,
+      icon: <Building className="h-8 w-8" />,
+      title: t("payment.methods.bankTransfer.title"),
+      description: t("payment.methods.bankTransfer.description"),
       features: [
-        "payment.methods.bankTransfer.lowFees",
-        "payment.methods.bankTransfer.secure",
+        t("payment.methods.bankTransfer.lowFees"),
+        t("payment.methods.bankTransfer.secure"),
       ],
-      color: "green",
     },
     {
       id: "mobile" as PaymentMethod,
-      icon: Smartphone,
-      titleKey: "payment.methods.mobile.title",
-      descriptionKey: "payment.methods.mobile.description",
-      popular: false,
+      icon: <Smartphone className="h-8 w-8" />,
+      title: t("payment.methods.mobile.title"),
+      description: t("payment.methods.mobile.description"),
       features: [
-        "payment.methods.mobile.quick",
-        "payment.methods.mobile.convenient",
+        t("payment.methods.mobile.quick"),
+        t("payment.methods.mobile.convenient"),
       ],
-      color: "purple",
     },
   ];
 
@@ -82,44 +68,31 @@ export default function PaymentMethodSelector({
       {paymentMethods.map((method) => (
         <Card
           key={method.id}
-          className={`cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 relative ${
-            method.popular ? "ring-2 ring-blue-500" : ""
-          }`}
+          className="cursor-pointer hover:shadow-lg transition-shadow border-2 hover:border-blue-300"
           onClick={() => onMethodSelect(method.id)}
         >
-          {method.popular && (
-            <Badge className="absolute -top-3 left-6 bg-blue-600 text-white hover:bg-blue-700">
-              <Star className="h-3 w-3 mr-1" />
-              {t("payment.mostPopular")}
-            </Badge>
-          )}
-          <CardHeader>
-            <div className="flex items-center space-x-4">
-              <div
-                className={`w-12 h-12 bg-${method.color}-100 rounded-lg flex items-center justify-center`}
-              >
-                <method.icon className={`h-6 w-6 text-${method.color}-600`} />
-              </div>
-              <div>
-                <CardTitle className="text-lg">{t(method.titleKey)}</CardTitle>
-              </div>
+          <CardHeader className="text-center">
+            <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
+              {method.icon}
             </div>
+            <CardTitle className="text-xl">{method.title}</CardTitle>
           </CardHeader>
-          <CardContent>
-            <p className="text-gray-600 mb-4">{t(method.descriptionKey)}</p>
-            <ul className="space-y-2">
+          <CardContent className="text-center">
+            <p className="text-gray-600 mb-4">{method.description}</p>
+            <ul className="space-y-2 mb-6">
               {method.features.map((feature, index) => (
                 <li
                   key={index}
-                  className="flex items-center text-sm text-gray-500"
+                  className="text-sm text-green-600 flex items-center justify-center"
                 >
-                  <div
-                    className={`w-1.5 h-1.5 bg-${method.color}-500 rounded-full mr-2`}
-                  />
-                  {t(feature)}
+                  <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                  {feature}
                 </li>
               ))}
             </ul>
+            <Button variant="outline" className="w-full">
+              Select {method.title}
+            </Button>
           </CardContent>
         </Card>
       ))}

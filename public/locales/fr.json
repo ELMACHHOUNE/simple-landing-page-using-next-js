@@ -425,5 +425,84 @@
       "goToDashboard": "Aller au Tableau de Bord",
       "backToHome": "Retour à l'Accueil"
     }
+  },
+  "plans": {
+    "title": "Choisissez Votre Parcours d'Apprentissage",
+    "subtitle": "Sélectionnez le programme parfait pour atteindre vos objectifs de carrière",
+    "popular": "Le Plus Populaire",
+    "bestValue": "Meilleure Valeur",
+    "courses": {
+      "frontend": {
+        "title": "Développement Frontend",
+        "description": "Maîtrisez les technologies frontend modernes incluant React, TypeScript et le design responsif.",
+        "price": 899,
+        "originalPrice": 1299,
+        "duration": "4 mois",
+        "level": "Débutant à Intermédiaire",
+        "students": "2 500+ étudiants",
+        "features": [
+          "HTML5, CSS3 & JavaScript ES6+",
+          "Maîtrise de React & Next.js",
+          "TypeScript & Outils Modernes",
+          "Design Responsif & Frameworks CSS",
+          "Contrôle de Version avec Git",
+          "Projets Portfolio",
+          "Mentorat Individuel",
+          "Support de Placement"
+        ]
+      },
+      "fullstack": {
+        "title": "Développement Full Stack",
+        "description": "Devenez un développeur complet avec des compétences frontend et backend utilisant la stack MERN.",
+        "price": 1299,
+        "originalPrice": 1899,
+        "duration": "6 mois",
+        "level": "Débutant à Avancé",
+        "students": "4 200+ étudiants",
+        "features": [
+          "Développement Frontend Complet",
+          "Backend avec Node.js & Express",
+          "Conception de Base de Données (MongoDB, SQL)",
+          "Authentification & Sécurité",
+          "Développement & Intégration d'API",
+          "Déploiement Cloud (AWS, Vercel)",
+          "Projets du Monde Réel",
+          "Coaching de Carrière",
+          "Certifications Industrielles",
+          "Accès à Vie"
+        ]
+      },
+      "backend": {
+        "title": "Ingénierie Backend",
+        "description": "Construisez des applications côté serveur robustes et des API avec des technologies backend modernes.",
+        "price": 999,
+        "originalPrice": 1399,
+        "duration": "5 mois",
+        "level": "Intermédiaire à Avancé",
+        "students": "1 800+ étudiants",
+        "features": [
+          "Framework Node.js & Express",
+          "Conception & Gestion de Base de Données",
+          "Développement d'API RESTful",
+          "Implémentation GraphQL",
+          "Authentification & Autorisation",
+          "Tests & Documentation",
+          "Fondamentaux DevOps",
+          "Optimisation de Performance"
+        ]
+      }
+    },
+    "features": {
+      "mentorship": "Mentorat Individuel",
+      "projects": "Projets Réels",
+      "certificate": "Certificat",
+      "support": "Support 24/7",
+      "placement": "Placement d'Emploi",
+      "lifetime": "Accès à Vie"
+    },
+    "enrollNow": "S'inscrire Maintenant",
+    "learnMore": "En Savoir Plus",
+    "whatYouGet": "Ce Que Vous Obtenez :",
+    "startLearning": "Commencez à Apprendre Aujourd'hui"
   }
 }

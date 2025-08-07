@@ -311,6 +311,85 @@
       "content": "If you have any questions about our use of cookies, please contact us at:"
     }
   },
+  "plans": {
+    "title": "Choose Your Learning Path",
+    "subtitle": "Select the perfect program to achieve your career goals",
+    "popular": "Most Popular",
+    "bestValue": "Best Value",
+    "courses": {
+      "frontend": {
+        "title": "Frontend Development",
+        "description": "Master modern frontend technologies including React, TypeScript, and responsive design.",
+        "price": 899,
+        "originalPrice": 1299,
+        "duration": "4 months",
+        "level": "Beginner to Intermediate",
+        "students": "2,500+ students",
+        "features": [
+          "HTML5, CSS3 & JavaScript ES6+",
+          "React & Next.js Mastery",
+          "TypeScript & Modern Tooling",
+          "Responsive Design & CSS Frameworks",
+          "Version Control with Git",
+          "Portfolio Projects",
+          "1-on-1 Mentorship",
+          "Job Placement Support"
+        ]
+      },
+      "fullstack": {
+        "title": "Full Stack Development",
+        "description": "Become a complete developer with both frontend and backend skills using the MERN stack.",
+        "price": 1299,
+        "originalPrice": 1899,
+        "duration": "6 months",
+        "level": "Beginner to Advanced",
+        "students": "4,200+ students",
+        "features": [
+          "Complete Frontend Development",
+          "Backend with Node.js & Express",
+          "Database Design (MongoDB, SQL)",
+          "Authentication & Security",
+          "API Development & Integration",
+          "Cloud Deployment (AWS, Vercel)",
+          "Real-world Projects",
+          "Career Coaching",
+          "Industry Certifications",
+          "Lifetime Access"
+        ]
+      },
+      "backend": {
+        "title": "Backend Engineering",
+        "description": "Build robust server-side applications and APIs with modern backend technologies.",
+        "price": 999,
+        "originalPrice": 1399,
+        "duration": "5 months",
+        "level": "Intermediate to Advanced",
+        "students": "1,800+ students",
+        "features": [
+          "Node.js & Express Framework",
+          "Database Design & Management",
+          "RESTful API Development",
+          "GraphQL Implementation",
+          "Authentication & Authorization",
+          "Testing & Documentation",
+          "DevOps Fundamentals",
+          "Performance Optimization"
+        ]
+      }
+    },
+    "features": {
+      "mentorship": "1-on-1 Mentorship",
+      "projects": "Real Projects",
+      "certificate": "Certificate",
+      "support": "24/7 Support",
+      "placement": "Job Placement",
+      "lifetime": "Lifetime Access"
+    },
+    "enrollNow": "Enroll Now",
+    "learnMore": "Learn More",
+    "whatYouGet": "What You Get:",
+    "startLearning": "Start Learning Today"
+  },
   "payment": {
     "title": "Complete Your Enrollment",
     "subtitle": "Secure payment processing for your selected program",

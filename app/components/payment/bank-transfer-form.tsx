@@ -11,7 +11,7 @@ import { Button } from "@/app/components/ui/button";
 import { Input } from "@/app/components/ui/input";
 import { Label } from "@/app/components/ui/label";
 import { useLanguage } from "@/app/contexts/language-context";
-import { ArrowLeft, Building, Copy, Check } from "lucide-react";
+import { ArrowLeft, AlertTriangle, Copy } from "lucide-react";
 
 interface BankTransferFormProps {
   onSubmit: (data: any) => void;
@@ -30,178 +30,138 @@ export default function BankTransferForm({
     email: "",
     phone: "",
   });
-  const [copiedField, setCopiedField] = useState<string | null>(null);
 
   const bankDetails = {
     bankName: "MSc-GoMyCode Bank",
-    accountName: "MSc-GoMyCode Education Ltd",
+    accountName: "MSc-GoMyCode Education",
     accountNumber: "1234567890",
-    routingNumber: "987654321",
-    swift: "MSCGMCUS33",
-    reference: `MSC-${Date.now()}`,
+    routingNumber: "021000021",
+    reference: `MSC${Date.now()}`,
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onSubmit({ ...formData, bankDetails });
   };
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const copyToClipboard = (text: string, field: string) => {
+  const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
-    setCopiedField(field);
-    setTimeout(() => setCopiedField(null), 2000);
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSubmit({ ...formData, bankDetails, method: "bank-transfer" });
   };
 
   return (
     <div className="max-w-2xl mx-auto">
-      <Button
-        variant="ghost"
-        onClick={onBack}
-        className="mb-6 hover:bg-gray-100"
-      >
+      <Button variant="ghost" onClick={onBack} className="mb-6">
         <ArrowLeft className="h-4 w-4 mr-2" />
         {t("payment.backToMethods")}
       </Button>
 
       <div className="space-y-6">
-        {/* Bank Details Card */}
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center">
-              <Building className="h-5 w-5 mr-2 text-green-600" />
-              {t("payment.bankTransfer.details")}
-            </CardTitle>
+            <CardTitle>{t("payment.bankTransfer.details")}</CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 gap-4">
-              <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                <div>
-                  <p className="text-sm text-gray-500">
-                    {t("payment.bankTransfer.bankName")}
-                  </p>
-                  <p className="font-medium">{bankDetails.bankName}</p>
+          <CardContent className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <Label className="text-sm font-medium text-gray-600">
+                  {t("payment.bankTransfer.bankName")}
+                </Label>
+                <div className="flex items-center justify-between bg-gray-50 p-2 rounded">
+                  <span className="font-mono">{bankDetails.bankName}</span>
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => copyToClipboard(bankDetails.bankName)}
+                  >
+                    <Copy className="h-3 w-3" />
+                  </Button>
                 </div>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={() =>
-                    copyToClipboard(bankDetails.bankName, "bankName")
-                  }
-                >
-                  {copiedField === "bankName" ? (
-                    <Check className="h-4 w-4" />
-                  ) : (
-                    <Copy className="h-4 w-4" />
-                  )}
-                </Button>
               </div>
-
-              <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                <div>
-                  <p className="text-sm text-gray-500">
-                    {t("payment.bankTransfer.accountName")}
-                  </p>
-                  <p className="font-medium">{bankDetails.accountName}</p>
+              <div>
+                <Label className="text-sm font-medium text-gray-600">
+                  {t("payment.bankTransfer.accountName")}
+                </Label>
+                <div className="flex items-center justify-between bg-gray-50 p-2 rounded">
+                  <span className="font-mono">{bankDetails.accountName}</span>
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => copyToClipboard(bankDetails.accountName)}
+                  >
+                    <Copy className="h-3 w-3" />
+                  </Button>
                 </div>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={() =>
-                    copyToClipboard(bankDetails.accountName, "accountName")
-                  }
-                >
-                  {copiedField === "accountName" ? (
-                    <Check className="h-4 w-4" />
-                  ) : (
-                    <Copy className="h-4 w-4" />
-                  )}
-                </Button>
               </div>
-
-              <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                <div>
-                  <p className="text-sm text-gray-500">
-                    {t("payment.bankTransfer.accountNumber")}
-                  </p>
-                  <p className="font-medium">{bankDetails.accountNumber}</p>
+              <div>
+                <Label className="text-sm font-medium text-gray-600">
+                  {t("payment.bankTransfer.accountNumber")}
+                </Label>
+                <div className="flex items-center justify-between bg-gray-50 p-2 rounded">
+                  <span className="font-mono">{bankDetails.accountNumber}</span>
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => copyToClipboard(bankDetails.accountNumber)}
+                  >
+                    <Copy className="h-3 w-3" />
+                  </Button>
                 </div>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={() =>
-                    copyToClipboard(bankDetails.accountNumber, "accountNumber")
-                  }
-                >
-                  {copiedField === "accountNumber" ? (
-                    <Check className="h-4 w-4" />
-                  ) : (
-                    <Copy className="h-4 w-4" />
-                  )}
-                </Button>
               </div>
-
-              <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                <div>
-                  <p className="text-sm text-gray-500">
-                    {t("payment.bankTransfer.routingNumber")}
-                  </p>
-                  <p className="font-medium">{bankDetails.routingNumber}</p>
+              <div>
+                <Label className="text-sm font-medium text-gray-600">
+                  {t("payment.bankTransfer.routingNumber")}
+                </Label>
+                <div className="flex items-center justify-between bg-gray-50 p-2 rounded">
+                  <span className="font-mono">{bankDetails.routingNumber}</span>
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => copyToClipboard(bankDetails.routingNumber)}
+                  >
+                    <Copy className="h-3 w-3" />
+                  </Button>
                 </div>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={() =>
-                    copyToClipboard(bankDetails.routingNumber, "routingNumber")
-                  }
-                >
-                  {copiedField === "routingNumber" ? (
-                    <Check className="h-4 w-4" />
-                  ) : (
-                    <Copy className="h-4 w-4" />
-                  )}
-                </Button>
-              </div>
-
-              <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg border border-blue-200">
-                <div>
-                  <p className="text-sm text-blue-600 font-medium">
-                    {t("payment.bankTransfer.reference")}
-                  </p>
-                  <p className="font-bold text-blue-800">
-                    {bankDetails.reference}
-                  </p>
-                </div>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={() =>
-                    copyToClipboard(bankDetails.reference, "reference")
-                  }
-                  className="border-blue-300 hover:bg-blue-100"
-                >
-                  {copiedField === "reference" ? (
-                    <Check className="h-4 w-4" />
-                  ) : (
-                    <Copy className="h-4 w-4" />
-                  )}
-                </Button>
               </div>
             </div>
 
-            <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
-              <p className="text-sm text-yellow-800">
-                <strong>{t("payment.bankTransfer.important")}:</strong>{" "}
-                {t("payment.bankTransfer.referenceNote")}
-              </p>
+            <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-lg">
+              <div className="flex items-start space-x-2">
+                <AlertTriangle className="h-5 w-5 text-yellow-600 mt-0.5" />
+                <div>
+                  <h4 className="font-semibold text-yellow-800">
+                    {t("payment.bankTransfer.important")}
+                  </h4>
+                  <p className="text-sm text-yellow-700 mt-1">
+                    {t("payment.bankTransfer.referenceNote")}
+                  </p>
+                  <div className="flex items-center justify-between bg-yellow-100 p-2 rounded mt-2">
+                    <span className="font-mono text-yellow-800">
+                      {bankDetails.reference}
+                    </span>
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => copyToClipboard(bankDetails.reference)}
+                    >
+                      <Copy className="h-3 w-3" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-2 text-sm text-gray-600">
+              <p>{t("payment.bankTransfer.instructions1")}</p>
+              <p>{t("payment.bankTransfer.instructions2")}</p>
+              <p>{t("payment.bankTransfer.instructions3")}</p>
             </div>
           </CardContent>
         </Card>
 
-        {/* Contact Form */}
         <Card>
           <CardHeader>
             <CardTitle>{t("payment.bankTransfer.contactInfo")}</CardTitle>
@@ -220,7 +180,6 @@ export default function BankTransferForm({
                   required
                 />
               </div>
-
               <div>
                 <Label htmlFor="email">{t("payment.form.email")}</Label>
                 <Input
@@ -231,9 +190,8 @@ export default function BankTransferForm({
                   required
                 />
               </div>
-
               <div>
-                <Label htmlFor="phone">{t("payment.form.phone")}</Label>
+                <Label htmlFor="phone">{t("payment.form.phoneNumber")}</Label>
                 <Input
                   id="phone"
                   type="tel"
@@ -242,18 +200,7 @@ export default function BankTransferForm({
                   required
                 />
               </div>
-
-              <div className="text-sm text-gray-600 space-y-2">
-                <p>{t("payment.bankTransfer.instructions1")}</p>
-                <p>{t("payment.bankTransfer.instructions2")}</p>
-                <p>{t("payment.bankTransfer.instructions3")}</p>
-              </div>
-
-              <Button
-                type="submit"
-                className="w-full bg-green-600 hover:bg-green-700"
-                size="lg"
-              >
+              <Button type="submit" className="w-full">
                 {t("payment.bankTransfer.submitRequest")}
               </Button>
             </form>
