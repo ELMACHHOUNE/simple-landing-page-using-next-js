@@ -4,10 +4,14 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 
 type Language = "en" | "fr";
 
+type TranslationValue = string | { [key: string]: TranslationValue };
+type Translations = Record<string, TranslationValue>;
+
 interface LanguageContextType {
   language: Language;
   setLanguage: (language: Language) => void;
   t: (key: string) => string;
+  isLoading: boolean;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
@@ -16,8 +20,9 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>("en");
-  const [translations, setTranslations] = useState<Record<string, any>>({});
+  const [translations, setTranslations] = useState<Translations>({});
   const [mounted, setMounted] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Set mounted state after hydration
   useEffect(() => {
@@ -44,29 +49,44 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   // Load translations dynamically based on the selected language
   useEffect(() => {
     async function loadTranslations() {
+      setIsLoading(true);
       try {
-        const response = await import(`../locales/${language}.json`);
-        setTranslations(response.default);
+        const response = await fetch(`/locales/${language}.json`);
+        if (!response.ok) {
+          throw new Error(`Failed to load translations: ${response.status}`);
+        }
+        const data = await response.json();
+        setTranslations(data);
+        console.log(`Translations loaded for ${language}:`, Object.keys(data));
       } catch (error) {
         console.error(
           `Error loading translations for language "${language}":`,
           error
         );
+        // Fallback to empty object if loading fails
+        setTranslations({});
+      } finally {
+        setIsLoading(false);
       }
     }
     loadTranslations();
   }, [language]);
 
   const t = (key: string): string => {
+    if (isLoading) {
+      return key; // Return key while loading
+    }
+
     const keys = key.split(".");
-    let value: any = translations;
+    let value: TranslationValue = translations;
 
     for (const k of keys) {
       if (value && typeof value === "object" && k in value) {
         value = value[k];
       } else {
         console.warn(
-          `Translation key "${key}" not found for language "${language}"`
+          `Translation key "${key}" not found for language "${language}". Available keys:`,
+          Object.keys(translations)
         );
         return key;
       }
@@ -76,7 +96,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage, t, isLoading }}>
       {children}
     </LanguageContext.Provider>
   );
